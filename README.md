@@ -1,16 +1,60 @@
-# React + Vite
+# Reelio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Reelio is a movie discovery web application built with **React**, **Vite**, and **Tailwind CSS**.  
+It allows users to explore and search for movies using data from the **TMDb (The Movie Database) API**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Current Progress
+- Set up project with **React + Vite** and integrated **Tailwind CSS**.
+- Implemented **Header**, **SearchBar**, **MovieList**, and **MovieCard** components.
+- Integrated **TMDb API** to display popular movies by default and handle user search queries.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
 
-## Expanding the ESLint configuration
+### 1. Clone the repository
+```bash
+git clone https://github.com/UzonduA/reelio
+cd reelio
+````
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Add your TMDb API key
+
+Create a `.env` file in the project root and add:
+
+```
+VITE_TMDB_API_KEY=your_tmdb_api_key_here
+```
+
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+---
+
+## Tech Stack
+
+* **React (Vite)**
+* **Tailwind CSS**
+* **TMDb API**
+* **Axios**
+
+---
+
+## Next Steps
+
+* Implement detailed movie view when a user clicks a movie card.
+* Improve responsiveness and UI animations.
+* Add error boundary and favorites functionality.
+
+> This project is currently in **Sprint 1** development phase.
