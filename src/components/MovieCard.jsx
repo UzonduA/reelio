@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function MovieCard({ movie, onClick }) {
+export default function MovieCard({ movie, onClick, onFavorite, isFavorite }) {
   const posterUrl = movie.poster_path
     ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
     : "https://via.placeholder.com/300x450?text=No+Image";
@@ -56,6 +56,15 @@ export default function MovieCard({ movie, onClick }) {
                 ⭐ {movie.vote_average.toFixed(1)}
               </p>
             )}
+            <button
+              onClick={(e) => {
+                 e.stopPropagation();
+                 onFavorite(movie);
+                }}
+                className="mt-2 text-red-500 hover:text-red-400 transition"
+              >
+               ❤️ {isFavorite ? "Remove" : "Add"}
+            </button>
         </div>
     </div>
   );
