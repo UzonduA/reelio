@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 
-export default function Header() {
+export default function Header({ onFavoritesClick }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -27,9 +27,15 @@ export default function Header() {
         </a>
 
         <nav className="hidden md:flex gap-8 items-center">
-          <a href="#" className="text-gray-600 hover:text-gray-900">Home</a>
-          <a href="#" className="text-gray-600 hover:text-gray-900">Favorites</a>
-          <a href="#" className="text-gray-600 hover:text-gray-900">About</a>
+          <a href="#" className="text-gray-600 hover:text-red-400">Home</a>
+          <a href="#" className="text-gray-600 hover:text-red-400">About</a>
+          <button
+            className="text-gray-600 hover:text-red-400 transition"
+            onClick={onFavoritesClick}
+          >
+            Favorites ❤️
+          </button>
+
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
@@ -52,7 +58,6 @@ export default function Header() {
         <div className="md:hidden border-t bg-white">
           <nav className="px-4 py-4 space-y-2">
             <a href="#" className="block text-gray-700">Home</a>
-            <a href="#" className="block text-gray-700">Favorites</a>
             <a href="#" className="block text-gray-700">About</a>
           </nav>
         </div>
