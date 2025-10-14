@@ -1,14 +1,29 @@
 import React, { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 
-export default function Header({ onFavoritesClick }) {
+export default function Header({ onFavoritesClick, favoritesCount = 0,  onHomeClick}) {
   const [open, setOpen] = useState(false);
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setOpen(false);
+    }
+  };
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-40">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
     
-        <a href="/" className="flex items-center gap-3">
+        <a href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            if (onHomeClick) onHomeClick();
+          }}
+          className="flex items-center gap-3">
+
           <svg
             width="36"
             height="36"
@@ -27,15 +42,33 @@ export default function Header({ onFavoritesClick }) {
         </a>
 
         <nav className="hidden md:flex gap-8 items-center">
-          <a href="#" className="text-gray-600 hover:text-red-400">Home</a>
-          <a href="#" className="text-gray-600 hover:text-red-400">About</a>
+          <button
+            onClick={() => 
+              {scrollToSection("home");
+              if (onHomeClick) onHomeClick();
+            }}
+            className="text-gray-600 hover:text-red-400 transition"
+          >
+            Home
+          </button>
+
+          <button
+            onClick={() => scrollToSection("about")}
+            className="text-gray-600 hover:text-red-400">
+              About
+          </button>
+
           <button
             className="text-gray-600 hover:text-red-400 transition"
             onClick={onFavoritesClick}
           >
             Favorites ❤️
+            {favoritesCount > 0 && (
+              <span className="absolute -top-2 -right-3 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
+                {favoritesCount}
+              </span>
+            )}
           </button>
-
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
@@ -57,8 +90,30 @@ export default function Header({ onFavoritesClick }) {
       {open && (
         <div className="md:hidden border-t bg-white">
           <nav className="px-4 py-4 space-y-2">
-            <a href="#" className="block text-gray-700">Home</a>
-            <a href="#" className="block text-gray-700">About</a>
+            <button
+              onClick={() => 
+                {scrollToSection("home")
+                if (onHomeClick) onHomeClick();
+              }}
+              className="block text-gray-700 w-full text-left"
+            >
+              Home
+            </button>
+            <button
+              onClick={() => 
+                {scrollToSection("about")
+                if (onHomeClick) onHomeClick();
+              }}
+              className="block text-gray-700 w-full text-left"
+            >
+              About
+            </button>
+            <button
+              onClick={onFavoritesClick}
+              className="block text-gray-700 w-full text-left"
+            >
+              Favorites ❤️ {favoritesCount > 0 && `(${favoritesCount})`}
+            </button>
           </nav>
         </div>
       )}
