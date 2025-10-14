@@ -6,6 +6,9 @@ import MovieList from "./components/MovieList";
 import tmdb from "./utils/tmdb";
 import MovieModal from "./components/MovieModal";
 import FavoritesList from './components/FavoritesList';
+import AboutSection from "./components/AboutSection";
+import Footer from "./components/Footer";
+
 
 export default function App() {
   const [movies, setMovies] = useState([]);
@@ -85,7 +88,11 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      <Header onFavoritesClick={() => setShowFavorites(!showFavorites)}/>
+      <Header
+        onFavoritesClick={() => setShowFavorites(!showFavorites)}
+        onHomeClick={() => setShowFavorites(false)}
+        favoritesCount={favorites.length}
+      />
       <main className="container mx-auto px-4 py-8">
         <h2 className="text-4xl font-bold text-white">Welcome to Reelio</h2>
         <SearchBar onSearch={handleSearch} />
@@ -96,28 +103,36 @@ export default function App() {
         {!loading && searched && movies.length === 0 && !error && (
           <p className="text-center text-gray-400 mt-6">No movies found. Try another search.</p>
         )}
-        {showFavorites ? (
-          <FavoritesList
-            favorites={favorites}
+
+        <section id="home">
+          {showFavorites ? (
+            <FavoritesList
+              favorites={favorites}
+              onCardClick={handleCardClick}
+              toggleFavorite={toggleFavorite}
+            />
+        
+          ) : (
+        
+          <MovieList
+            movies={movies}
             onCardClick={handleCardClick}
+            favorites={favorites}
             toggleFavorite={toggleFavorite}
-         />
-        ) : (
-        <MovieList
-          movies={movies}
-          onCardClick={handleCardClick}
-          favorites={favorites}
-          toggleFavorite={toggleFavorite}
-        />
-         )}
+          />
+          )}
+        </section>
         {selectedMovie && (
           <MovieModal
             movie={selectedMovie}
           onClose={() => setSelectedMovie(null)}
           />
+
         )}
-        
-        
+        <section id='about'>
+          <AboutSection />
+        </section>
+        <Footer />
       </main>
     </div>
   );
