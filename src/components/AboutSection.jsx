@@ -6,7 +6,7 @@ export default function AboutSection() {
       <div className="container mx-auto px-6 text-center max-w-3xl">
         <h2 className="text-4xl font-bold mb-4 text-red-400">About Reelio</h2>
         <p className="text-gray-300 leading-relaxed">
-          Reelio is a simple movie discovery web app built using React and the TMDB API. 
+          Reelio is a simple movie Database web app built using React and the TMDB API. 
           It allows users to explore trending movies, search for titles, 
           and save favorites for later viewing. 
         </p>
