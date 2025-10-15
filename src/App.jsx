@@ -87,7 +87,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-gray-900 text-gray-500">
       <Header
         onFavoritesClick={() => setShowFavorites(!showFavorites)}
         onHomeClick={() => setShowFavorites(false)}
@@ -101,7 +101,7 @@ export default function App() {
         {error && <p className="text-center text-red-500 mt-6">{error}</p>}
 
         {!loading && searched && movies.length === 0 && !error && (
-          <p className="text-center text-gray-400 mt-6">No movies found. Try another search.</p>
+          <p className="text-center text-gray-600 mt-6">No movies found. Try another search.</p>
         )}
 
         <section id="home">
