@@ -13,7 +13,7 @@ export default function FavoritesList({ favorites, onCardClick, onFavorite }) {
           key={movie.id}
           movie={movie}
           onClick={() => onCardClick(movie)}
-          onFavorite={() => toggleFavorite(movie)}
+          onFavorite={() => onFavorite(movie)}
           isFavorite={true}
         />
       ))}
