@@ -109,7 +109,7 @@ export default function App() {
             <FavoritesList
               favorites={favorites}
               onCardClick={handleCardClick}
-              toggleFavorite={toggleFavorite}
+              onFavorite={toggleFavorite}
             />
         
           ) : (
