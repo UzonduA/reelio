@@ -3,7 +3,7 @@
 Reelio is a movie database web application that allows users to explore popular and trending movies, search for specific titles, and save their favorites. It fetches data from The Movie Database (TMDb) API and organizes it in a clean, responsive interface. The app also maintains a local database of favorite movies using browser storage, giving users a personalized experience.Reelio is built with **React**, **Vite** **Axios**, and **Tailwind CSS**.  
 
 ---
-##Key Features
+## Key Features
 
 **Movie Discovery:** Browse a curated list of trending and popular movies.
 
@@ -20,7 +20,7 @@ Reelio is a movie database web application that allows users to explore popular 
 **Clean UI & Accessibility:** Designed with Tailwind CSS for a minimal, user-friendly interface.
 
 ---
-##Purpose
+## Purpose
 
 Reelio solves a common problem — finding and organizing movies efficiently.
 Instead of juggling multiple streaming platforms or lists, users can quickly browse, search, and keep track of the movies that interest them, all in one place.
