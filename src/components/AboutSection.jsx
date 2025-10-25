@@ -11,7 +11,7 @@ export default function AboutSection() {
           and save favorites for later viewing. 
         </p>
 
-        <p className="text-gray-400 mt-4">
+        <p className="text-gray-300 mt-4">
           This project was developed as part of a learning journey to understand API integration, 
           component-based architecture, and React state management.
         </p>
